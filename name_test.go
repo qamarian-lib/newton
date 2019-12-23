@@ -12,15 +12,16 @@ func TestName (t *testing.T) {
 	str.PrintEtr ("Test started...", "std", "TestName ()")
 	fmt.Print ("\n\n")
 
-	for i := 1; i <= 16; i ++ {
-		name, errX := Name (i)
+	testPattern := []string {"cvcvcvcv", "vcvcvc", "ecvc", ""}
+	for _, pattern := range testPattern {
+		name, errX := Name (pattern)
 		if errX != nil {
 			e := err.New ("Unable to create a new name.", nil, nil, errX)
-			str.PrintEtr (errLib.Fup (e), "err", "TestName ()")
-			return
+			str.PrintEtr (errLib.Fup (e), "std", "TestName ()")
+			continue
 		}
 
-		o := fmt.Sprintf ("Name %d: %s", i, name)
+		o := fmt.Sprintf ("Pattern %s; Name: %s", pattern, name)
 		str.PrintEtr (o, "std", "TestName ()")
 	}
 
