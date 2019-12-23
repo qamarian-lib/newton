@@ -173,8 +173,8 @@ var spelling_spelling = map[string] map[string] []string {
 
 	"a": map[string] []string {
 		"first": []string {"a", "ar", "er", "ha", "har", "her"},
-		"sType": []string {"a", "ar", "er", "ha"},
-		"other": []string {"a", "ar", "er", "ha"},
+		"sType": []string {"a", "ar", "er"},
+		"other": []string {"a", "ar", "er"},
 	},
 	"A": map[string] []string {
 		"first": []string {"a"},
@@ -183,28 +183,28 @@ var spelling_spelling = map[string] map[string] []string {
 	},
 	"e": map[string] []string {
 		"first": []string {"e", "he"},
-		"sType": []string {"e", "he"},
-		"other": []string {"e", "he"},
+		"sType": []string {"e"},
+		"other": []string {"e"},
 	},
 	"i": map[string] []string {
 		"first": []string {"i", "e", "y", "hi", "he"},
-		"sType": []string {"i", "e", "y", "hi", "he"},
-		"other": []string {"i", "e", "y", "hi", "he"},
+		"sType": []string {"i", "e", "y"},
+		"other": []string {"i", "e", "y"},
 	},
 	"o": map[string] []string {
 		"first": []string {"o", "ho"},
-		"sType": []string {"o", "ho"},
-		"other": []string {"o", "ho"},
+		"sType": []string {"o"},
+		"other": []string {"o"},
 	},
 	"|": map[string] []string {
-		"first": []string {"o", "u", "ho", "hu", "or", "ur", "hor", "hur"},
-		"sType": []string {"o", "u", "ho", "hu", "or", "ur"},
-		"other": []string {"o", "u", "ho", "hu", "or", "ur"},
+		"first": []string {"ho", "hu", "or", "ur", "hor", "hur"},
+		"sType": []string {"u"},
+		"other": []string {"or", "ur"},
 	},
 	"u": map[string] []string {
 		"first": []string {"u", "hu", "oo", "hoo"},
-		"sType": []string {"u", "hu", "oo", "hoo"},
-		"other": []string {"u", "hu", "oo", "hoo"},
+		"sType": []string {"u"},
+		"other": []string {"u"},
 	},
 }
 

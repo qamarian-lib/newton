@@ -13,7 +13,7 @@ func TestSpelling (t *testing.T) {
 	fmt.Println ()
 
 	for i := 1; i <= 8; i ++ {
-		n, errX := Name ("ecvcv")
+		n, errX := Name ("cvvccvc")
 		if errX != nil {
 			errY := err.New ("Broken dependency. Ref: 0", nil, nil, errX)
 			str.PrintEtr (errLib.Fup (errY), "err", "TestSpelling ()")
