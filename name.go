@@ -90,7 +90,7 @@ type Name struct {
 	name []Sound
 }
 
-// Method Polish () modifies a sound such that it becomes easier to pronounce.
+// Method Polish () modifies a name such that it becomes easier to pronounce.
 func (n *Name) Polish () {
 	newSound := []Sound {}
 	ascendSound := n.name [0]
@@ -205,9 +205,8 @@ _u
 `
 )
 
-// Method Spelling () provides English spelling for the sound. The argument should be the
-// number of possible spellings you
-// want.
+// Method Spelling () provides English spelling for the name. Its argument should be the
+// number of possible spellings you would like.
 //
 // If there are as much spelling as you requested, you would get that number of spellings.
 // If there are not as much spelling as you requested, all the ones available would be
