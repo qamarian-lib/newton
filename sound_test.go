@@ -10,43 +10,52 @@ import (
 
 func TestSound (t *testing.T) {
 	str.PrintEtr ("Test started...", "std", "TestSound ()")
+	fmt.Print ("\n")
+	baseChar := byte ('b')
 
-	for i := 1; i <= 8; i ++ {
-		// ..1.. {
-		s, errX := Sound ()
+	for x := 1; x <= 4; x ++ {
+		soundX, errX := Sound_New (rune (baseChar + byte (x)))
 		if errX != nil {
-			e := err.New ("Test failed. [Unable to obtain a sound.]", nil, nil,
-				errX)
+			e := err.New ("Unable to create sound.", nil, nil, errX)
 			str.PrintEtr (errLib.Fup (e), "err", "TestSound ()")
 			t.FailNow ()
 		}
-		str.PrintEtr ("Some sound: " + string (s), "std", "TestSound ()")	
-		// ..1.. }
+		oX := fmt.Sprintf ("input sound: %s;        sound; %s; type: %d",
+			string (baseChar + byte (x)), soundX.String (), soundX.Type ())
+		fmt.Println (oX)
 
-		// ..1.. {
-		c, errY := Sound ('c')
+		soundY, errY := Sound_Rand ('c')
 		if errY != nil {
-			e := err.New ("Test failed. [Unable to obtain a sound.]", nil, nil,
-				errY)
+			e := err.New ("Unable to obtain random sound.", nil, nil, errY)
 			str.PrintEtr (errLib.Fup (e), "err", "TestSound ()")
 			t.FailNow ()
 		}
-		str.PrintEtr ("Cons sound: " + string (c), "std", "TestSound ()")	
-		// ..1.. }
+		oY := fmt.Sprintf ("input sound: ?;        sound; %s; type: %d",
+			soundY.String (), soundY.Type ())
+		fmt.Println (oY)
 
-		// ..1.. {
-		v, errZ := Sound ('v')
+		soundZ, errZ := Sound_Rand ('v')
 		if errZ != nil {
-			e := err.New ("Test failed. [Unable to obtain a sound.]", nil, nil,
-				errZ)
+			e := err.New ("Unable to obtain random sound.", nil, nil, errZ)
 			str.PrintEtr (errLib.Fup (e), "err", "TestSound ()")
 			t.FailNow ()
 		}
-		str.PrintEtr ("Vowl sound: " + string (v), "std", "TestSound ()")	
-		// ..1.. }
-		
-		fmt.Print ("\n\n")
+		oZ := fmt.Sprintf ("input sound: ?;        sound; %s; type: %d",
+			soundZ.String (), soundZ.Type ())
+		fmt.Println (oZ)
+
+		soundA, errA := Sound_Rand ()
+		if errA != nil {
+			e := err.New ("Unable to obtain random sound.", nil, nil, errA)
+			str.PrintEtr (errLib.Fup (e), "err", "TestSound ()")
+			t.FailNow ()
+		}
+		oA := fmt.Sprintf ("input sound: ?;        sound; %s; type: %d",
+			soundA.String (), soundA.Type ())
+		fmt.Println (oA)
+
+		fmt.Println ()
 	}
 
-	str.PrintEtr ("Test passed!", "std", "TestSound ()")
+	str.PrintEtr ("Test passed.", "std", "TestSound()")
 }
