@@ -29,7 +29,7 @@
 //	e - as pronounced in mEAt
 //	o - as pronounced in pOke
 //	_ - as pronounced in Underscore
-//	u - as pronounced in Ubuntu
+//	# - as pronounced in Ubuntu
 //
 // Using the info above:
 //
