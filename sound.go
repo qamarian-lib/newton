@@ -26,6 +26,7 @@ func Sound (soundType ... rune) (sound rune, e error) {
 	}
 	// ..1.. }
 
+	// ..1.. {
 	sounds := []rune {}
 	if len (soundType) == 1 && soundType [0] == 'c' {
 		sounds = sound_cons
@@ -34,12 +35,13 @@ func Sound (soundType ... rune) (sound rune, e error) {
 	} else {
 		sounds = sound_all
 	}
-
+	// ..1.. }
+	
 	randByte := make ([]byte, 1)
 	_, errX := rand.Read (randByte)
 	if errX != nil {
-		e = err.New ("Unable to source a random byte, for deciding what sound " +
-			"to choose.", nil, nil, errX)
+		e = err.New ("Unable to obtain a random byte: random byte need for " +
+			"deciding what sound to choose.", nil, nil, errX)
 		return
 	}
 	chosenSound := int (randByte [0]) % len (sounds)

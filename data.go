@@ -1,6 +1,6 @@
 package newton
 
 var (
-	Cons  = "wrtypsdfgjklzvbnm" // Consonant sounds supported.
-	Vowl  = "aAeio|u" // Vowel sounds supported.
+	Cons  = "bcdf*jklmnprtvwxy"// Consonant sounds supported.
+	Vowl  = "@a!eo_#" // Vowel sounds supported.
 )

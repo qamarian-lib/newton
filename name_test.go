@@ -13,10 +13,11 @@ func TestName (t *testing.T) {
 	fmt.Print ("\n\n")
 
 	testPattern := []string {"cvcvcvcv", "vcvcvc", "ecvc", ""}
+
 	for _, pattern := range testPattern {
 		name, errX := Name (pattern)
 		if errX != nil {
-			e := err.New ("Unable to create a new name.", nil, nil, errX)
+			e := err.New ("Unable to obtain a name.", nil, nil, errX)
 			str.PrintEtr (errLib.Fup (e), "std", "TestName ()")
 			continue
 		}

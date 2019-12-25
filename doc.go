@@ -1,9 +1,13 @@
+// Package newton contains elements that can be used for generating a random name (both
+// sound and spelling).
+//
 // Consonant sounds supported:
 //
 // 	b - as pronounced in Beep
+//	c - as pronounced in miCe
 //	d - as pronounced in Deep
 //	f - as pronounced in Fish
-//	g - as pronounced in Gate
+//	* - as pronounced in Gate
 //	j - as pronounced in Jack
 //	k - as pronounced in Kiss
 //	l - as pronounced in Lime
@@ -11,27 +15,25 @@
 //	n - as pronounced in Neat
 //	p - as pronounced in beeP
 //	r - as pronounced in Rise
-//	s - as pronounced in tiSe
 //	t - as pronounced in Tise
 //	v - as pronounced in Vase
 //	w - as pronounced in Wine
+//	x - as pronounced in Zeal
 //	y - as pronounced in Yard
-//	z - as pronounced in Zeal
 //
 // Vowel sounds supported:
 //
-// 	a - as pronounced in HER
-//	A - as pronounced in Ape
-//	e - as pronounced in EArn
-//	i - as pronounced in HEAl
-//	o - as pronounced in OAk
-//	| - as pronounced in ORange
+// 	@ - as pronounced in At
+//	a - as pronounced in Ape
+//	! - as pronounced in Exclaim
+//	e - as pronounced in mEAt
+//	o - as pronounced in pOke
+//	_ - as pronounced in Underscore
 //	u - as pronounced in Ubuntu
 //
-// Using the info above, our sound for "Silicon" would be written as:
-// silik|n 
+// Using the info above:
 //
-// Using the info above, our sound for "Apple" would be written as:
-// apl
+// the sound for "Silicon" would be: "selek_n";
+// the sound for "Apple" would be "@p#l".
 //
 package newton

@@ -15,14 +15,14 @@ func TestSpelling (t *testing.T) {
 	for i := 1; i <= 8; i ++ {
 		n, errX := Name ("cvvccvc")
 		if errX != nil {
-			errY := err.New ("Broken dependency. Ref: 0", nil, nil, errX)
+			errY := err.New ("Unable to obtain a name.", nil, nil, errX)
 			str.PrintEtr (errLib.Fup (errY), "err", "TestSpelling ()")
 			t.FailNow ()
 		}
 
 		spellings, errZ := Spelling (n, 16)
 		if errZ != nil {
-			errA := err.New ("Broken dependency. Ref: 1", nil, nil, errZ)
+			errA := err.New ("Unable to obtain spellings for obtained name.", nil, nil, errZ)
 			str.PrintEtr (errLib.Fup (errA), "err", "TestSpelling ()")
 			t.FailNow ()
 		}

@@ -8,6 +8,14 @@ import (
 	"strings"
 )
 
+// Function Spelling () provides English spelling for a sound. The first argument should be
+// the sound, while the second argument should be the number of possible spellings you
+// want.
+//
+// If there are as much spelling as you requested, you would get that number of spellings.
+// If there are not as much spelling as you requested, all the ones available would be
+// returned.
+//
 func Spelling (sound string, no int) (o []string, e error) {
 	for i, aSound := range sound {
 		if i == 0 {
@@ -16,14 +24,20 @@ func Spelling (sound string, no int) (o []string, e error) {
 		}
 
 		setToUse := "other"
-		if (strings.Contains (Cons, string (aSound)) && strings.Contains (Cons, string (sound [i - 1]))) ||
-			(strings.Contains (Vowl, string (aSound)) && strings.Contains (Vowl, string (sound [i - 1]))) {
+		if (strings.Contains (Cons, string (aSound)) && strings.Contains (Cons,
+			string (sound [i - 1]))) || (strings.Contains (Vowl,
+			string (aSound)) && strings.Contains (Vowl,
+			string (sound [i - 1]))) {
+			
 			setToUse = "sType"
 		}
 
 		if i < (len (sound) - 1) {
-		if (strings.Contains (Cons, string (aSound)) && strings.Contains (Cons, string (sound [i + 1]))) ||
-			(strings.Contains (Vowl, string (aSound)) && strings.Contains (Vowl, string (sound [i + 1]))) {
+		if (strings.Contains (Cons, string (aSound)) && strings.Contains (Cons,
+			string (sound [i + 1]))) || (strings.Contains (Vowl,
+			string (aSound)) && strings.Contains (Vowl,
+			string (sound [i + 1]))) {
+			
 			setToUse = "sType"
 		}
 		}
@@ -52,18 +66,24 @@ func Spelling (sound string, no int) (o []string, e error) {
 	o = []string {}
 	u, errT := unket.New (int64 (len (allSpelling)))
 	if errT != nil {
-		e = err.New ("Broken dependency.", nil, nil, errT)
+		e = err.New ("Unable to randomly select from spellings available: " +
+			"unable to create gene need for the random selection.", nil, nil,
+			errT)
 		return
 	}
 
 	for i := 1; i <= no; i ++ {
 		n, errX := u.Pick ()
 		if errX != nil {
-			e = err.New ("Error occured while trying to pick number from unket.", nil, nil, errX)
+			e = err.New ("Unable to randomly select from spellings " +
+				"available: unable to obtain a random number that " +
+				"would be used for selection.", nil, nil, errX)
 			return
 		}
 		if n == nil {
-			e = err.New ("Bug detected. Ref: 0.", nil, nil)
+			e = err.New ("Unable to randomly select from spellings " +
+				"available: no random number was returned by dependency.",
+				nil, nil)
 			return
 		}
 
@@ -81,12 +101,16 @@ func Spelling (sound string, no int) (o []string, e error) {
 
 var spelling_spelling = map[string] map[string] []string {
 
-	// Consonants
-
+// Consonant sounds spelling
 	"b": map[string] []string {
 		"first": []string {"b"},
 		"sType": []string {"b"},
 		"other": []string {"b"},
+	},
+	"c": map[string] []string {
+		"first": []string {"c", "s"},
+		"sType": []string {"c", "s"},
+		"other": []string {"c", "s"},
 	},
 	"d": map[string] []string {
 		"first": []string {"d"},
@@ -98,15 +122,15 @@ var spelling_spelling = map[string] map[string] []string {
 		"sType": []string {"f", "ph"},
 		"other": []string {"f", "ph"},
 	},
-	"g": map[string] []string {
+	"*": map[string] []string {
 		"first": []string {"g"},
 		"sType": []string {"g"},
 		"other": []string {"g"},
 	},
 	"j": map[string] []string {
-		"first": []string {"j", "g", "dj", "dg"},
-		"sType": []string {"j", "g"},
-		"other": []string {"j", "g", "dj", "dg"},
+		"first": []string {"j"},
+		"sType": []string {"j"},
+		"other": []string {"j"},
 	},
 	"k": map[string] []string {
 		"first": []string {"k", "q"},
@@ -138,11 +162,6 @@ var spelling_spelling = map[string] map[string] []string {
 		"sType": []string {"r"},
 		"other": []string {"r"},
 	},
-	"s": map[string] []string {
-		"first": []string {"s", "c"},
-		"sType": []string {"s", "c"},
-		"other": []string {"s", "c"},
-	},
 	"t": map[string] []string {
 		"first": []string {"t"},
 		"sType": []string {"t"},
@@ -158,50 +177,49 @@ var spelling_spelling = map[string] map[string] []string {
 		"sType": []string {"w"},
 		"other": []string {"w"},
 	},
+	"x": map[string] []string {
+		"first": []string {"x", "z"},
+		"sType": []string {"x", "z"},
+		"other": []string {"x", "z"},
+	},
 	"y": map[string] []string {
 		"first": []string {"y"},
 		"sType": []string {"y"},
 		"other": []string {"y"},
 	},
-	"z": map[string] []string {
-		"first": []string {"x", "z"},
-		"sType": []string {"x", "z"},
-		"other": []string {"x", "z"},
-	},
 
-	// Vowels
-
-	"a": map[string] []string {
+// Vowel sounds spellings
+	"@": map[string] []string {
 		"first": []string {"a", "ar", "er", "ha", "har", "her"},
 		"sType": []string {"a", "ar", "er"},
 		"other": []string {"a", "ar", "er"},
 	},
-	"A": map[string] []string {
+	"a": map[string] []string {
 		"first": []string {"a"},
 		"sType": []string {"a"},
 		"other": []string {"a"},
 	},
-	"e": map[string] []string {
+	"!": map[string] []string {
 		"first": []string {"e", "he"},
 		"sType": []string {"e"},
 		"other": []string {"e"},
 	},
-	"i": map[string] []string {
-		"first": []string {"i", "e", "y", "hi", "he"},
-		"sType": []string {"i", "e", "y"},
-		"other": []string {"i", "e", "y"},
+	"e": map[string] []string {
+		"first": []string {"i", "ea", "he", "hi", "hea"},
+		"sType": []string {"i"},
+		"other": []string {"i"},
 	},
 	"o": map[string] []string {
 		"first": []string {"o", "ho"},
 		"sType": []string {"o"},
 		"other": []string {"o"},
 	},
-	"|": map[string] []string {
+	"_": map[string] []string {
 		"first": []string {"ho", "hu", "or", "ur", "hor", "hur"},
 		"sType": []string {"u"},
 		"other": []string {"or", "ur"},
 	},
-	"u": map[string] []string {
+	"#": map[string] []string {
 		"first": []string {"u", "hu", "oo", "hoo"},
 		"sType": []string {"u"},
 		"other": []string {"u"},
