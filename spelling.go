@@ -191,7 +191,7 @@ var spelling_spelling = map[string] map[string] []string {
 // Vowel sounds spellings
 	"@": map[string] []string {
 		"first": []string {"a", "ar", "er", "ha", "har", "her"},
-		"sType": []string {"a", "ar", "er"},
+		"sType": []string {"a"},
 		"other": []string {"a", "ar", "er"},
 	},
 	"a": map[string] []string {
